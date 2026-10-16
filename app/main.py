@@ -24,7 +24,7 @@ def get_current_dns_ip(domain: str) -> str:
 
     try:
         full_domain = f"{domain}.duckdns.org"
-        answers = dns.custom_resolver.resolve(full_domain, 'A')
+        answers = custom_resolver.resolve(full_domain, 'A')
         return answers[0].to_text()
     except Exception as e:
         return f"Error resolving DNS for {domain}: {e}"
