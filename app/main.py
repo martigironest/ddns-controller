@@ -12,9 +12,19 @@ DUCKDNS_TOKEN = os.getenv("DUCKDNS_TOKEN", "")
 TARGET_DOMAIN = os.getenv("TARGET_DOMAIN", "target-ddns")
 
 def get_current_dns_ip(domain: str) -> str:
+    custom_resolver = dns.resolver.Resolver()
+
+    custom_resolver.nameservers = [
+        '1.1.1.1',  # Cloudflare DNS
+        '8.8.8.8',  # Google DNS
+    ]
+
+    custom_resolver.timeout = 2.0
+    custom_resolver.lifetime = 2.0
+
     try:
         full_domain = f"{domain}.duckdns.org"
-        answers = dns.resolver.resolve(full_domain, 'A')
+        answers = dns.custom_resolver.resolve(full_domain, 'A')
         return answers[0].to_text()
     except Exception as e:
         return f"Error resolving DNS for {domain}: {e}"
