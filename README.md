@@ -254,9 +254,3 @@ The following official documentation, registries, and marketplaces were leverage
   - [FastAPI Framework Documentation](https://fastapi.tiangolo.com/): Async route handlers and Jinja2 template integration.
   - [dnspython Documentation](https://www.dnspython.org/): DNS resolver configuration for authoritative upstream queries.
   - [Tailwind CSS CDN](https://tailwindcss.com/docs/installation/play-cdn): Utility-first styling for the client interface.
-
----
-
-## License
-
-This project is licensed under the MIT License.
