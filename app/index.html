@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full bg-slate-950 text-slate-100">
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DDNS Controller — Panel de Pruebas</title>
+  <title>DDNS Controller — Test Dashboard</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -67,7 +67,7 @@
           <span class="w-2 h-2 rounded-full bg-emerald-400 live-dot"></span>
           <span class="text-slate-300 font-medium">API Online</span>
         </div>
-        <a href="/" class="p-2 text-slate-400 hover:text-white transition rounded-lg hover:bg-slate-800/60" title="Recargar panel">
+        <a href="/" class="p-2 text-slate-400 hover:text-white transition rounded-lg hover:bg-slate-800/60" title="Reload dashboard">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
           </svg>
@@ -81,9 +81,9 @@
     
     <!-- Hero / Briefing -->
     <div class="mb-8">
-      <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Panel de Control & Demostración DDNS</h1>
+      <h1 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">DDNS Control & Demo Dashboard</h1>
       <p class="mt-2 text-slate-400 max-w-3xl leading-relaxed text-sm sm:text-base">
-        Este entorno permite simular y verificar la actualización en tiempo real de registros DNS tipo <strong class="text-slate-200">A</strong> mediante la API de DuckDNS, con aislamiento del canal de administración web.
+        This environment allows you to simulate and verify real-time updates of type <strong class="text-slate-200">A</strong> DNS records via the DuckDNS API, with isolation from the web administration channel.
       </p>
     </div>
 
@@ -97,9 +97,9 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="text-sm font-semibold text-emerald-300">Petición procesada con éxito</h3>
+          <h3 class="text-sm font-semibold text-emerald-300">Request processed successfully</h3>
           <p class="mt-1 text-sm text-emerald-200/90 font-mono">{{ message }}</p>
-          <p class="mt-2 text-xs text-emerald-400/80">DuckDNS confirmó la actualización del registro. El backend realizó una resolución DNS directa para validar el estado.</p>
+          <p class="mt-2 text-xs text-emerald-400/80">DuckDNS confirmed the record update. The backend performed direct DNS resolution to validate the status.</p>
         </div>
       </div>
       {% else %}
@@ -110,18 +110,18 @@
           </svg>
         </div>
         <div class="flex-1">
-          <h3 class="text-sm font-semibold text-rose-300">Respuesta de error en la sincronización</h3>
+          <h3 class="text-sm font-semibold text-rose-300">Synchronization error response</h3>
           <p class="mt-1 text-sm text-rose-200/90 font-mono">{{ message }}</p>
-          <p class="mt-2 text-xs text-rose-400/80">Verifica que el token de DuckDNS y el subdominio configurados en las variables de entorno sean válidos.</p>
+          <p class="mt-2 text-xs text-rose-400/80">Verify that the DuckDNS token and subdomain configured in the environment variables are valid.</p>
         </div>
       </div>
       {% endif %}
     {% endif %}
 
-    <!-- Grid: Estado Actual & Formulario de Prueba -->
+    <!-- Grid: Current Status & Test Form -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-      <!-- Left Column: Estado Actual del Servicio (5 cols) -->
+      <!-- Left Column: Current Service Status (5 cols) -->
       <section class="lg:col-span-5 space-y-6">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl relative overflow-hidden">
           <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none"></div>
@@ -133,31 +133,31 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </span>
-              <h2 class="text-base font-semibold text-white">Estado DNS Actual</h2>
+              <h2 class="text-base font-semibold text-white">Current DNS Status</h2>
             </div>
             <a href="/" class="text-xs text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition">
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
               </svg>
-              Consultar ahora
+              Query now
             </a>
           </div>
 
           <div class="mt-6 space-y-5">
-            <!-- Dominio Objetivo -->
+            <!-- Target Domain -->
             <div>
-              <span class="text-xs font-medium text-slate-400 uppercase tracking-wider block">Dominio Objetivo (Test Target)</span>
+              <span class="text-xs font-medium text-slate-400 uppercase tracking-wider block">Target Domain (Test Target)</span>
               <div class="mt-1 flex items-center justify-between p-3 rounded-xl bg-slate-950 border border-slate-800">
                 <span class="font-mono text-sm text-indigo-300 font-medium truncate select-all" id="target-domain-text">{{ target_domain }}.duckdns.org</span>
-                <button type="button" onclick="copyToClipboard('target-domain-text', this)" class="text-slate-400 hover:text-slate-200 text-xs px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 transition" title="Copiar dominio">
-                  Copiar
+                <button type="button" onclick="copyToClipboard('target-domain-text', this)" class="text-slate-400 hover:text-slate-200 text-xs px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 transition" title="Copy domain">
+                  Copy
                 </button>
               </div>
             </div>
 
-            <!-- IP Resuelta -->
+            <!-- Resolved IP -->
             <div>
-              <span class="text-xs font-medium text-slate-400 uppercase tracking-wider block">IP Resuelta Actualmente (Registro A)</span>
+              <span class="text-xs font-medium text-slate-400 uppercase tracking-wider block">Currently Resolved IP (A Record)</span>
               <div class="mt-1 p-4 rounded-xl bg-slate-950 border {% if 'Error' in current_ip %}border-rose-900/50 bg-rose-950/20{% else %}border-slate-800{% endif %}">
                 <div class="flex items-center justify-between">
                   <span class="font-mono text-lg sm:text-xl font-bold tracking-tight {% if 'Error' in current_ip %}text-rose-400 text-sm{% else %}text-emerald-400{% endif %} select-all" id="current-ip-text">
@@ -165,11 +165,11 @@
                   </span>
                   {% if 'Error' in current_ip %}
                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-rose-500/10 text-rose-400 border border-rose-500/20">
-                      Error DNS
+                      DNS Error
                     </span>
                   {% else %}
                     <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      Resuelto
+                      Resolved
                     </span>
                   {% endif %}
                 </div>
@@ -177,44 +177,44 @@
                   <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Resolución directa mediante <code>dns.resolver (Python)</code>
+                  Direct resolution via Google DNS and Cloudflare DNS
                 </p>
               </div>
             </div>
 
-            <!-- Información técnica adicional -->
+            <!-- Additional technical information -->
             <div class="pt-4 border-t border-slate-800/80 text-xs text-slate-400 space-y-2">
               <div class="flex justify-between py-1">
-                <span class="text-slate-500">Proveedor DNS:</span>
+                <span class="text-slate-500">DNS Provider:</span>
                 <span class="text-slate-300 font-mono">DuckDNS.org</span>
               </div>
               <div class="flex justify-between py-1">
-                <span class="text-slate-500">TTL Estimado:</span>
-                <span class="text-slate-300 font-mono">60 segundos</span>
+                <span class="text-slate-500">Estimated TTL:</span>
+                <span class="text-slate-300 font-mono">60 seconds</span>
               </div>
               <div class="flex justify-between py-1">
-                <span class="text-slate-500">Canal de Administración:</span>
-                <span class="text-emerald-400 font-medium">Aislado (Dominio Fijo)</span>
+                <span class="text-slate-500">Admin Channel:</span>
+                <span class="text-emerald-400 font-medium">Isolated (Fixed Domain)</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Card de Seguridad y Aislamiento -->
+        <!-- Security and Isolation Card -->
         <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-5 text-xs text-slate-400">
           <div class="flex items-center gap-2 text-indigo-400 font-semibold mb-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            Garantía de Aislamiento
+            Isolation Guarantee
           </div>
           <p class="leading-relaxed">
-            Las modificaciones enviadas desde este panel únicamente impactan al subdominio conejillo de indias (<code class="text-slate-300">{{ target_domain }}.duckdns.org</code>). El panel administrativo y la máquina host nunca pierden conectividad.
+            Modifications submitted from this dashboard only affect the target test subdomain (<code class="text-slate-300">{{ target_domain }}.duckdns.org</code>). The administrative dashboard and host machine never lose connectivity.
           </p>
         </div>
       </section>
 
-      <!-- Right Column: Formulario para enviar nueva IP (7 cols) -->
+      <!-- Right Column: Form to submit new IP (7 cols) -->
       <section class="lg:col-span-7 space-y-6">
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl">
           <div class="flex items-center justify-between pb-4 border-b border-slate-800/80">
@@ -224,18 +224,18 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
               </span>
-              <h2 class="text-base font-semibold text-white">Sincronizar Registro DNS</h2>
+              <h2 class="text-base font-semibold text-white">Sync DNS Record</h2>
             </div>
             <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-slate-800 text-slate-300 border border-slate-700/60">
               POST /v1/sync
             </span>
           </div>
 
-          <!-- Formulario POST -->
+          <!-- POST Form -->
           <form action="/v1/sync" method="post" id="sync-form" class="mt-6 space-y-5" onsubmit="handleSubmit()">
             <div>
               <label for="new_ip" class="block text-sm font-medium text-slate-200">
-                Nueva Dirección IPv4
+                New IPv4 Address
               </label>
               <div class="mt-2 relative rounded-xl shadow-sm">
                 <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
@@ -248,21 +248,21 @@
                   name="new_ip"
                   id="new_ip"
                   required
-                  placeholder="ej: 203.0.113.88"
+                  placeholder="e.g. 203.0.113.88"
                   pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"
-                  title="Por favor ingresa una dirección IPv4 válida (ej. 203.0.113.88)"
+                  title="Please enter a valid IPv4 address (e.g. 203.0.113.88)"
                   class="block w-full pl-10 pr-4 py-3 bg-slate-950 border border-slate-700/80 rounded-xl text-white font-mono placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition sm:text-sm"
                 >
               </div>
               <p class="mt-2 text-xs text-slate-400">
-                Formato requerido: IPv4 decimal con puntos (ej. <code class="text-indigo-300">203.0.113.88</code> o <code class="text-indigo-300">198.51.100.42</code>).
+                Required format: dotted-decimal IPv4 (e.g. <code class="text-indigo-300">203.0.113.88</code> or <code class="text-indigo-300">198.51.100.42</code>).
               </p>
             </div>
 
-            <!-- Botones de prueba rápida / Presets -->
+            <!-- Quick test buttons / Presets -->
             <div>
               <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2.5">
-                Valores de Prueba Rápida (RFC 5737 Test-Nets)
+                Quick Test Values (RFC 5737 Test-Nets)
               </span>
               <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
                 <button
@@ -291,7 +291,7 @@
                   onclick="generateRandomIp()"
                   class="px-2.5 py-1.5 text-xs font-mono rounded-lg bg-indigo-950/60 hover:bg-indigo-900/60 border border-indigo-700/50 text-indigo-300 transition text-center truncate"
                 >
-                  🎲 Aleatoria
+                  🎲 Random
                 </button>
               </div>
 
@@ -306,7 +306,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  Detectar y rellenar con mi IP pública
+                  Detect and fill with my public IP
                 </button>
                 <span id="detect-status" class="text-slate-500 font-mono"></span>
               </div>
@@ -323,39 +323,39 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
                 </svg>
                 <svg id="btn-spinner" class="w-5 h-5 animate-spin hidden" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
                 </svg>
-                <span id="btn-text">Actualizar Registro en DuckDNS</span>
+                <span id="btn-text">Update Record in DuckDNS</span>
               </button>
             </div>
           </form>
         </div>
 
-        <!-- Explicación del Ciclo de Ejecución -->
+        <!-- Execution Lifecycle Explanation -->
         <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6">
           <h3 class="text-sm font-semibold text-slate-200 mb-3 flex items-center gap-2">
             <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            ¿Qué ocurre al presionar "Actualizar"?
+            What happens when clicking "Update Record"?
           </h3>
           <ol class="space-y-2.5 text-xs text-slate-400">
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono font-bold flex items-center justify-center shrink-0 text-[11px]">1</span>
-              <span>La API en <code class="text-slate-300">FastAPI</code> recibe el formulario en el endpoint <code class="text-slate-300">POST /v1/sync</code>.</span>
+              <span>The <code class="text-slate-300">FastAPI</code> backend receives the form at the <code class="text-slate-300">POST /v1/sync</code> endpoint.</span>
             </li>
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono font-bold flex items-center justify-center shrink-0 text-[11px]">2</span>
-              <span>Ejecuta una llamada HTTP asíncrona segura con <code class="text-slate-300">httpx</code> hacia la API de DuckDNS.</span>
+              <span>It executes a secure asynchronous HTTP call using <code class="text-slate-300">httpx</code> to the DuckDNS API.</span>
             </li>
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono font-bold flex items-center justify-center shrink-0 text-[11px]">3</span>
-              <span>DuckDNS actualiza sus servidores autoritativos y responde <code class="text-emerald-400 font-mono">OK</code>.</span>
+              <span>DuckDNS updates its authoritative servers and responds with <code class="text-emerald-400 font-mono">OK</code>.</span>
             </li>
             <li class="flex items-start gap-2.5">
               <span class="w-5 h-5 rounded-full bg-slate-800 text-indigo-400 font-mono font-bold flex items-center justify-center shrink-0 text-[11px]">4</span>
-              <span>El backend resuelve el registro DNS para contrastar y renderiza el resultado en la interfaz.</span>
+              <span>The backend resolves the DNS record to verify and renders the result on the dashboard.</span>
             </li>
           </ol>
         </div>
@@ -367,11 +367,11 @@
     <div class="mt-12 pt-8 border-t border-slate-800/80">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/60">
-          <span class="text-xs text-slate-500 uppercase tracking-wider block">Infraestructura</span>
+          <span class="text-xs text-slate-500 uppercase tracking-wider block">Infrastructure</span>
           <span class="font-semibold text-sm text-slate-200 mt-1 block">Terraform (AWS EC2)</span>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/60">
-          <span class="text-xs text-slate-500 uppercase tracking-wider block">Contenedor</span>
+          <span class="text-xs text-slate-500 uppercase tracking-wider block">Container</span>
           <span class="font-semibold text-sm text-slate-200 mt-1 block">Docker Runtime</span>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/60">
@@ -379,7 +379,7 @@
           <span class="font-semibold text-sm text-slate-200 mt-1 block">FastAPI + Jinja2</span>
         </div>
         <div class="p-4 rounded-xl bg-slate-900/50 border border-slate-800/60">
-          <span class="text-xs text-slate-500 uppercase tracking-wider block">Automatización</span>
+          <span class="text-xs text-slate-500 uppercase tracking-wider block">Automation</span>
           <span class="font-semibold text-sm text-slate-200 mt-1 block">GitHub Actions CI/CD</span>
         </div>
       </div>
@@ -394,7 +394,7 @@
         <span>DDNS Controller Portfolio Project</span> &bull; <span>DuckDNS Provider Integration</span>
       </div>
       <div class="flex items-center space-x-4">
-        <span>Arquitectura Segura de Doble Dominio</span>
+        <span>Secure Dual-Domain Architecture</span>
       </div>
     </div>
   </footer>
@@ -417,18 +417,18 @@
     async function detectPublicIp() {
       const statusEl = document.getElementById('detect-status');
       const btn = document.getElementById('detect-ip-btn');
-      statusEl.textContent = 'Consultando...';
+      statusEl.textContent = 'Querying...';
       try {
         const res = await fetch('https://api.ipify.org?format=json');
         if (!res.ok) throw new Error('Network error');
         const data = await res.json();
         if (data.ip) {
           setIp(data.ip);
-          statusEl.textContent = 'IP detectada';
+          statusEl.textContent = 'IP detected';
           setTimeout(() => { statusEl.textContent = ''; }, 3000);
         }
       } catch (err) {
-        statusEl.textContent = 'No disponible';
+        statusEl.textContent = 'Unavailable';
         setTimeout(() => { statusEl.textContent = ''; }, 3000);
       }
     }
@@ -437,7 +437,7 @@
       const text = document.getElementById(elementId).innerText.trim();
       navigator.clipboard.writeText(text).then(() => {
         const originalText = btn.innerText;
-        btn.innerText = '¡Copiado!';
+        btn.innerText = 'Copied!';
         btn.classList.add('text-emerald-400');
         setTimeout(() => {
           btn.innerText = originalText;
@@ -456,7 +456,7 @@
       submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
       btnIcon.classList.add('hidden');
       btnSpinner.classList.remove('hidden');
-      btnText.textContent = 'Enviando a DuckDNS...';
+      btnText.textContent = 'Sending to DuckDNS...';
     }
   </script>
 </body>
