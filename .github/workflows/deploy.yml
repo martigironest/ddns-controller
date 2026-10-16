@@ -15,42 +15,42 @@ jobs:
 
       - name: Deploy to EC2 via SSH
         uses: appleboy/ssh-action@v1.0.3
+        env:
+          DUCKDNS_TOKEN: ${{ secrets.DUCKDNS_TOKEN }}
+          TARGET_DOMAIN: ${{ secrets.TARGET_DOMAIN }}
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           envs: DUCKDNS_TOKEN,TARGET_DOMAIN
-        env:
-          DUCKDNS_TOKEN: ${{ secrets.DUCKDNS_TOKEN }}
-          TARGET_DOMAIN: ${{ secrets.TARGET_DOMAIN }}
-        script: |
-          # Create a directory for the application if it doesn't exist
-          mkdir -p ~/app
-          cd ~/app
+          script: |
+            # Create a directory for the application if it doesn't exist
+            mkdir -p ~/app
+            cd ~/app
 
-          # If the repository is not cloned yet, clone it; otherwise, pull the latest changes
-          if [ ! -d ".git" ]; then
-            git clone https://github.com/${{ github.repository }}.git .
-          else
-            git fetch origin main
-            git reset --hard origin/main
-          fi
+            # If the repository is not cloned yet, clone it; otherwise, pull the latest changes
+            if [ ! -d ".git" ]; then
+              git clone https://github.com/${{ github.repository }}.git .
+            else
+              git fetch origin main
+              git reset --hard origin/main
+            fi
 
-          # Stop and remove the existing container if it exists
-          docker stop ddns-container || true
-          docker rm ddns-container || true
+            # Stop and remove the existing container if it exists
+            docker stop ddns-container || true
+            docker rm ddns-container || true
 
-          # Build the Docker image for the DDNS API
-          docker build -t ddns-api .
+            # Build the Docker image for the DDNS API
+            docker build -t ddns-api .
 
-          # Run the Docker container with the necessary environment variables and port mapping
-          docker run -d \
-            --name ddns-container \
-            --restart always \
-            -p 80:80 \
-            -e DUCKDNS_TOKEN="$DUCKDNS_TOKEN" \
-            -e TARGET_DOMAIN="$TARGET_DOMAIN" \
-            ddns-api
+            # Run the Docker container with the necessary environment variables and port mapping
+            docker run -d \
+              --name ddns-container \
+              --restart always \
+              -p 80:80 \
+              -e DUCKDNS_TOKEN="$DUCKDNS_TOKEN" \
+              -e TARGET_DOMAIN="$TARGET_DOMAIN" \
+              ddns-api
 
-          # Clean up unused Docker images to free up space
-          docker image prune -f
+            # Clean up unused Docker images to free up space
+            docker image prune -f
